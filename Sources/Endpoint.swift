@@ -126,7 +126,7 @@ public extension Endpoint {
         let (method, URL, otherValues) = self.buildURL(parameters)
 
         // if `unless` is the URL string
-        if let URLString = unless?.URLString, URL = NSURL(string: URLString) where !URL.scheme.isEmpty {
+        if let URLString = unless?.URLString, URL = NSURL(string: URLString) where !URL.scheme!.isEmpty {
             return Alamofire.request(method, URL)
         }
         // if `unless` is the URL path
